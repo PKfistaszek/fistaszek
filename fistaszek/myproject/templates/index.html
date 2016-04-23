@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1> formularz </h1>
+	<form action="{% url 'upload' %}" method="post">{% csrf_token %}
+		{{ form.email.errors }}
+    	<label for="{{ form.email.id_for_label }}">Email subject:</label>
+    	{{ form.email }}
+    	
+    	{{ form.password.errors }}
+    	<label for="{{ form.password.id_for_label }}">Password:</label>
+		{{ form.password }}
+		<button type="submit" class="btn">Login</button>
+	</form>
+{% endblock %}
+
+{% block logout %}
+{% endblock %}
+{% block list %}
+{% endblock %}
