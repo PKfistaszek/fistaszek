@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+from mock import Mock, patch, sentinel
+from morelia.decorators import tags
+from smarttest.decorators import no_db_testcase
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.files import File
+from django.test import TestCase
+
+from myproject.factories import UserFilesFactory
+
+
+@no_db_testcase
+@tags(['unit'])
+class UserFilesTestCase(TestCase):
+    u"UserFiles unittest class."
+
+    def test_shoud_return_name_described_by_unicode(self):
+        file = Mock(File)
+        file.name = 'upload/fake.JSON'
+        user_file = UserFilesFactory.build(pk=1, upload=file)
+        self.assertEqual('fake.JSON', user_file.__unicode__())
