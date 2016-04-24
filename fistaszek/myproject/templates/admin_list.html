@@ -1,0 +1,15 @@
+{% extends 'list.html' %}
+
+{% block main_columns %}
+<td> User name  </td>
+<td> | </td>
+<td> {{ file.private }}  </td>
+<td> | </td>
+{% endblock %}
+
+{% block user_column %}
+<td> {{ file.user }}  </td>
+<td> | </td>
+<td> {{ file.private }}  </td>
+<td> | </td>
+{% endblock %}
