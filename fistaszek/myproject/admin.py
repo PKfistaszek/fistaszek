@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Admin.
+
+=====================
+"""
+
 from django.contrib import admin
 from myproject.models import UserFiles
 

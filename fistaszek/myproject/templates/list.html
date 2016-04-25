@@ -2,10 +2,24 @@
 
 {% block content %}
 	<table>
+		<tr>
+			{% block main_columns %} {% endblock %}
+			<td> File name </td>
+			<td> | </td>
+			<td> Size </td>
+			<td> | </td>
+			<td> Upload date </td>
+			<td> | </td>
+		</tr>
 	{% for file in object_list %}
 		<tr>
-			<td> {{ file.size|filesizeformat }} </td>
-			<td> {{ file.upload_date }} </td>	
+			{% block user_column %} {% endblock %}
+			<td> {{ file.upload }}  </td>
+			<td> | </td>
+			<td> {{ file.upload.size|filesizeformat }} </td>
+			<td> | </td>
+			<td> {{ file.upload_date }} </td>
+			<td> | </td>	
 		</tr>
 	{% endfor %}
 	</table>

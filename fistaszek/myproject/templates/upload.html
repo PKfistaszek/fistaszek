@@ -3,7 +3,7 @@
 {% block content %}
 	<h1> formularz </h1>
 	<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-		{{ form.as_table }}
+		{{ form.as_p  }}
 		<button type="submit" class="btn">Submit</button>
 	</form>
 {% endblock %}

@@ -1,4 +1,10 @@
-from mock import Mock, patch, sentinel
+# -*- coding: utf-8 -*-
+"""
+Views test
+===================
+"""
+
+from mock import Mock, MagicMock, patch, sentinel
 from morelia.decorators import tags
 from smarttest.decorators import no_db_testcase
 from unittest import skip
@@ -53,19 +59,18 @@ class UploadFileFormTestCase(TestCase):
     u"UploadFileForm unittest class."
 
     def setUp(self):
-        self._file = SimpleUploadedFile("file.JSON", "file_content", content_type='application/json')
-        self._file = {'file': SimpleUploadedFile("file.JSON", "file_content", content_type='application/json')}
+        self._file = MagicMock(spec=File, name='RestrictedFileField')
+        # self._file.name = 'upload/file_name'
         self._private = True
         self._data = {
             'private': self._private,
+            'file': self._file
         }
 
     @skip('TODO')
     def test_should_validate_input(self):
-        form = UserForm(self._data, files=self._file)
+        form = UploadFileForm(self._data)
         result = form.is_valid()
-        print dir(self._file)
-        print form.errors
         self.assertTrue(result)
         self.assertEqual(form.cleaned_data['file'], self._file)
         self.assertEqual(form.cleaned_data['private'], self._private)

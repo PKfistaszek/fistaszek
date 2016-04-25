@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1> formularz </h1>
-	<form action="{% url 'upload' %}" method="post">{% csrf_token %}
+	<form action="{% url 'index' %}" method="post">{% csrf_token %}
 		{{ form.email.errors }}
     	<label for="{{ form.email.id_for_label }}">Email subject:</label>
     	{{ form.email }}
@@ -16,5 +16,9 @@
 
 {% block logout %}
 {% endblock %}
+
 {% block list %}
+{% endblock %}
+
+{% block upload %}
 {% endblock %}

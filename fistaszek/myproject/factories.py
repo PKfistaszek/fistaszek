@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Factories
+======
+"""
+
 import factory
 
 from django.core.files.uploadedfile import SimpleUploadedFile
