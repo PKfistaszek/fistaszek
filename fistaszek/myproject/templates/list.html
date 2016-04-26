@@ -14,7 +14,7 @@
 	{% for file in object_list %}
 		<tr>
 			{% block user_column %} {% endblock %}
-			<td> {{ file.upload }}  </td>
+			<td> {{ file }}  </td>
 			<td> | </td>
 			<td> {{ file.upload.size|filesizeformat }} </td>
 			<td> | </td>

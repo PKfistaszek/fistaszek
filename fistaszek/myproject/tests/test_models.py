@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 u"""
 Testy modeli.
 =============
@@ -9,7 +8,6 @@ from mock import Mock, patch, sentinel
 from morelia.decorators import tags
 from smarttest.decorators import no_db_testcase
 
-from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files import File
 from django.test import TestCase
 

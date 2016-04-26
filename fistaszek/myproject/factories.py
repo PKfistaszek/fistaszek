@@ -13,12 +13,13 @@ from myproject.models import UserFiles
 
 
 class UserFactory(factory.Factory):
+    u"Factory class for User."
     class Meta:
         model = User
 
 
 class UserFilesFactory(factory.Factory):
-    # upload = SimpleUploadedFile("file.JSON", "file_content", content_type="aplication/JSON", name="upload/file.JSON")
+    u"Factory class for UserFilesFactory."
 
     class Meta:
         model = UserFiles

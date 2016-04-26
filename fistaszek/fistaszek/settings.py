@@ -112,7 +112,7 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/London'
 
-LOGIN_URL=reverse_lazy('index')
-
+LOGIN_URL = reverse_lazy('index')
 DEFAULT_FROM_EMAIL = 'p.koziol.p@gmail.pl'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

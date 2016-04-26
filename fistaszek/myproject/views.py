@@ -11,7 +11,7 @@ from django.contrib.auth import (
 )
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
@@ -35,10 +35,10 @@ class IndexView(FormView):
 
         :param template_name: path to template
         :type template_name: string or unicode
-        :param form_class: Logging form.`
+        :param form_class: Logging form.
         :type form_class: UserForm
         :param success_url: Return url after successful validation.
-        :type success_url: specific django type ::module <django.utils.functional.__proxy__
+        :type success_url: specific django type ::module <django.utils.functional.__proxy__.
     """
 
     template_name = 'index.html'
@@ -108,7 +108,7 @@ class UploadFileView(FormView):
         user_file.save()
         message = self._send_create_email_message(user_file)
 
-        send_upload_email_task(self.request.user.email, message)
+        send_upload_email_task.delay(self.request.user.email, message)
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):

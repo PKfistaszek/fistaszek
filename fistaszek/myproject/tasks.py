@@ -14,7 +14,7 @@ from myproject.emails import send_upload_email
 logger = get_task_logger(__name__)
 
 
-@task(name="send_feedback_email_task")
+@task(name="send_upload_email_task")
 def send_upload_email_task(email, message):
     u"Sends an email when file is uploaded successfully."
     logger.info("Sent upload email")

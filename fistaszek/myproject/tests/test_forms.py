@@ -60,14 +60,14 @@ class UploadFileFormTestCase(TestCase):
 
     def setUp(self):
         self._file = MagicMock(spec=File, name='RestrictedFileField')
-        # self._file.name = 'upload/file_name'
+        self._file.content_types = ['application/json']
+        self._file.name = 'upload/file_name'
         self._private = True
         self._data = {
             'private': self._private,
             'file': self._file
         }
 
-    @skip('TODO')
     def test_should_validate_input(self):
         form = UploadFileForm(self._data)
         result = form.is_valid()
